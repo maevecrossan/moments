@@ -27,20 +27,20 @@ function PostPage() {
 
     useEffect(() => {
         const handleMount = async () => {
-        try {
+          try {
             const [{ data: post }, { data: comments }] = await Promise.all([
-            axiosReq.get(`/posts/${id}`),
-            axiosReq.get(`/comments/?post=${id}`),
+              axiosReq.get(`/posts/${id}/`),
+              axiosReq.get(`/comments/?post=${id}`),
             ]);
             setPost({ results: [post] });
             setComments(comments);
-        } catch (err) {
+          } catch (err) {
             console.log(err);
-        }
+          }
         };
-
+    
         handleMount();
-    }, [id]);
+      }, [id]);
 
     return (
         <Row className="h-100">

@@ -3,10 +3,11 @@ import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import CommentEditForm from "./CommentEditForm";
+
 import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
-import CommentEditForm from "./CommentEditForm";
 
 const Comment = (props) => {
     const {
@@ -54,16 +55,14 @@ const Comment = (props) => {
             <Media.Body className="align-self-center ml-2">
             <span className={styles.Owner}>{owner}</span>
             <span className={styles.Date}>{updated_at}</span>
-            {/* This code adds a ternary to display the comment 
-            edit form component if a user selects the edit option: */}
             {showEditForm ? (
-                <CommentEditForm 
-                    id={id}
-                    profile_id={profile_id}
-                    content={content}
-                    profileImage={profile_image}
-                    setComments={setComments}
-                    setShowEditForm={setShowEditForm}
+                <CommentEditForm
+                id={id}
+                profile_id={profile_id}
+                content={content}
+                profileImage={profile_image}
+                setComments={setComments}
+                setShowEditForm={setShowEditForm}
                 />
             ) : (
                 <p>{content}</p>
@@ -77,7 +76,7 @@ const Comment = (props) => {
             )}
         </Media>
         </>
-    );
+      );
 };
 
 export default Comment;
