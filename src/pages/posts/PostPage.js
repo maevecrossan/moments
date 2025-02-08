@@ -12,7 +12,7 @@ import Post from "./Post";
 
 function PostPage() {
     const { id } = useParams();
-    const [post, setPost] = useState({results: [] })
+    const [post, setPost] = useState({results: [] });
 
     useEffect(() => {
         const handleMount = async () => {
