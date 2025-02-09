@@ -37,9 +37,6 @@ function ProfilePage() {
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username === profile?.owner;
 
-    const followersCount = Number(profile?.followers_count ?? 0);
-    const followingCount = Number(profile?.following_count ?? 0);
-
     useEffect(() => {
         const fetchData = async () => {
         try {
@@ -75,15 +72,15 @@ function ProfilePage() {
             <h3 className="m-2">{profile?.owner}</h3>
             <Row className="justify-content-center no-gutters">
                 <Col xs={3} className="my-2">
-                <div>{profile?.post_count}</div>
+                <div>{profile?.posts_count}</div>
                 <div>posts</div>
                 </Col>
                 <Col xs={3} className="my-2">
-                <div>{followersCount}</div>
+                <div>{profile?.followers_count}</div>
                 <div>followers</div>
                 </Col>
                 <Col xs={3} className="my-2">
-                <div>{followingCount}</div>
+                <div>{profile?.following_count}</div>
                 <div>following</div>
                 </Col>
             </Row>
